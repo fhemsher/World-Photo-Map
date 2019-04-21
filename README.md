@@ -12,7 +12,7 @@ Place unzipped files into that site's folder.
 
 To run the application, in **localhost** select the index.htm file. 
 
-You may then create/save/edit Exotic Plant Photo drawings.
+You may then create/save/edit Photos to the World Map.
 
 ![](http://exotic-plant-map.org/Images/exoticPlant.jpg)
 
