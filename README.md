@@ -18,6 +18,8 @@ You may then create/save/edit Photos to the World Map.
 
 To preview how this application works go to: http://exotic-plant-map.org
 
+or http://exotic-animal-map.org
+
 NOTE:To store your maps for the LIBRARY folder, the Windows IIS must have 
 ASP files activated (See **Wiki** for a description how to do this).
 
