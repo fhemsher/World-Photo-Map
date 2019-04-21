@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+  <title>Untitled</title>
+
+</head>
+
+<body onload=sendSize() style=font-family:arial>
+<div id=containerDiv style="width:310px;padding:10px;background:#C3E6D3;border-radius:10px;border:1px solid purple">
+<table style=width:100%; ><tr><td style=width:90% align=center><b><span id=editAddMapSpan>Save Your Plant Map</span></b></td><td align=right><button onClick=parent.closeDrawMap() >X</button></td></tr></table>
+<div style=text-align:center;font-size:90%><i>
+Your map will be stored in the Library
+</i>
+</div><br>
+
+
+
+<table class="copySource" >
+<tr>
+<td><input type="text" autocomplete="off"  id=yourMapTitleValue style="background:#e0b0ff;width:270px" placeholder="Your Map Title" autocomplete="off"  value="" /></td></tr>
+<tr> <td style=font-weight:bold>
+
+       Date Discovered
+
+           <select id=timeZoneSelect title="Time Zone">
+               <option>Time Zone</option>
+<option title="Australian Central Daylight Savings Time UTC+10:30">ACDT</option>
+<option title="Australian Central Standard Time UTC+09:30">ACST</option>
+<option title="Acre Time UTC-05">ACT</option>
+<option title="Australian Central Western Standard Time (unofficial) UTC+08:45">ACWST</option>
+<option title="Atlantic Daylight Time UTC-03">ADT</option>
+<option title="Australian Eastern Daylight Savings Time UTC+11">AEDT</option>
+<option title="Australian Eastern Standard Time UTC+10">AEST</option>
+<option title="Afghanistan Time UTC+04:30">AFT</option>
+<option title="Alaska Daylight Time UTC-08">AKDT</option>
+<option title="Alaska Standard Time UTC-09">AKST</option>
+<option title="Alma-Ata Time[1] UTC+06">ALMT</option>
+<option title="Amazon Summer Time (Brazil)[2] UTC-03">AMST</option>
+<option title="Amazon Time (Brazil)[3] UTC-04">AMT</option>
+<option title="Armenia Time UTC+04">AMT</option>
+<option title="Anadyr Time[4] UTC+12">ANAT</option>
+<option title="Aqtobe Time[5] UTC+05">AQTT</option>
+<option title="Argentina Time UTC-03">ART</option>
+<option title="Arabia Standard Time UTC+03">AST</option>
+<option title="Atlantic Standard Time UTC-04">AST</option>
+<option title="Australian Western Standard Time UTC+08">AWST</option>
+<option title="Azores Summer Time UTC±00">AZOST</option>
+<option title="Azores Standard Time UTC-01">AZOT</option>
+<option title="Azerbaijan Time UTC+04">AZT</option>
+<option title="Brunei Time UTC+08">BDT</option>
+<option title="British Indian Ocean Time UTC+06">BIOT</option>
+<option title="Baker Island Time UTC-12">BIT</option>
+<option title="Bolivia Time UTC-04">BOT</option>
+<option title="Brasília Summer Time UTC-02">BRST</option>
+<option title="Brasilia Time UTC-03">BRT</option>
+<option title="Bangladesh Standard Time UTC+06">BST</option>
+<option title="Bougainville Standard Time[6] UTC+11">BST</option>
+<option title="Bhutan Time UTC+06">BTT</option>
+<option title="Central Africa Time UTC+02">CAT</option>
+<option title="Cocos Islands Time UTC+06:30">CCT</option>
+<option title="Central Daylight Time (North America) UTC-05">CDT</option>
+<option title="Cuba Daylight Time[7] UTC-04">CDT</option>
+<option title="Central European Summer Time (Cf. HAEC) UTC+02">CEST</option>
+<option title="Central European Time UTC+01">CET</option>
+<option title="Chatham Daylight Time UTC+13:45">CHADT</option>
+<option title="Chatham Standard Time UTC+12:45">CHAST</option>
+<option title="Choibalsan Standard Time UTC+08">CHOT</option>
+<option title="Choibalsan Summer Time UTC+09">CHOST</option>
+<option title="Chamorro Standard Time UTC+10">CHST</option>
+<option title="Chuuk Time UTC+10">CHUT</option>
+<option title="Clipperton Island Standard Time UTC-08">CIST</option>
+<option title="Central Indonesia Time UTC+08">CIT</option>
+<option title="Cook Island Time UTC-10">CKT</option>
+<option title="Chile Summer Time UTC-03">CLST</option>
+<option title="Chile Standard Time UTC-04">CLT</option>
+<option title="Colombia Summer Time UTC-04">COST</option>
+<option title="Colombia Time UTC-05">COT</option>
+<option title="Central Standard Time (North America) UTC-06">CST</option>
+<option title="China Standard Time UTC+08">CST</option>
+<option title="Cuba Standard Time UTC-05">CST</option>
+<option title="China Time UTC+08">CT</option>
+<option title="Cape Verde Time UTC-01">CVT</option>
+<option title="Central Western Standard Time (Australia) unofficial UTC+08:45">CWST</option>
+<option title="Christmas Island Time UTC+07">CXT</option>
+<option title="Davis Time UTC+07">DAVT</option>
+<option title="Dumont d'Urville Time UTC+10">DDUT</option>
+<option title="AIX-specific equivalent of Central European Time[NB 1] UTC+01">DFT</option>
+<option title="Easter Island Summer Time UTC-05">EASST</option>
+<option title="Easter Island Standard Time UTC-06">EAST</option>
+<option title="East Africa Time UTC+03">EAT</option>
+<option title="Eastern Caribbean Time (does not recognise DST) UTC-04">ECT</option>
+<option title="Ecuador Time UTC-05">ECT</option>
+<option title="Eastern Daylight Time (North America) UTC-04">EDT</option>
+<option title="Eastern European Summer Time UTC+03">EEST</option>
+<option title="Eastern European Time UTC+02">EET</option>
+<option title="Eastern Greenland Summer Time UTC±00">EGST</option>
+<option title="Eastern Greenland Time UTC-01">EGT</option>
+<option title="Eastern Indonesian Time UTC+09">EIT</option>
+<option title="Eastern Standard Time (North America) UTC-05">EST</option>
+<option title="Further-eastern European Time UTC+03">FET</option>
+<option title="Fiji Time UTC+12">FJT</option>
+<option title="Falkland Islands Summer Time UTC-03">FKST</option>
+<option title="Falkland Islands Time UTC-04">FKT</option>
+<option title="Fernando de Noronha Time UTC-02">FNT</option>
+<option title="Galápagos Time UTC-06">GALT</option>
+<option title="Gambier Islands Time UTC-09">GAMT</option>
+<option title="Georgia Standard Time UTC+04">GET</option>
+<option title="French Guiana Time UTC-03">GFT</option>
+<option title="Gilbert Island Time UTC+12">GILT</option>
+<option title="Gambier Island Time UTC-09">GIT</option>
+<option title="Greenwich Mean Time UTC±00">GMT</option>
+<option title="South Georgia and the South Sandwich Islands Time UTC-02">GST</option>
+<option title="Gulf Standard Time UTC+04">GST</option>
+<option title="Guyana Time UTC-04">GYT</option>
+<option title="Hawaii–Aleutian Daylight Time UTC-09">HDT</option>
+<option title="Heure Avancée d'Europe Centrale French-language name for CEST UTC+02">HAEC</option>
+<option title="Hawaii–Aleutian Standard Time UTC-10">HST</option>
+<option title="Hong Kong Time UTC+08">HKT</option>
+<option title="Heard and McDonald Islands Time UTC+05">HMT</option>
+<option title="Hovd Time UTC+07">HOVT</option>
+<option title="Indochina Time UTC+07">ICT</option>
+<option title="International Day Line West time zone UTC-12">IDLW</option>
+<option title="Israel Daylight Time UTC+03">IDT</option>
+<option title="Indian Ocean Time UTC+03">IOT</option>
+<option title="Iran Daylight Time UTC+04:30">IRDT</option>
+<option title="Irkutsk Time UTC+08">IRKT</option>
+<option title="Iran Standard Time UTC+03:30">IRST</option>
+<option title="Indian Standard Time UTC+05:30">IST</option>
+<option title="Irish Standard Time[8] UTC+01">IST</option>
+<option title="Israel Standard Time UTC+02">IST</option>
+<option title="Japan Standard Time UTC+09">JST</option>
+<option title="Kaliningrad Time UTC+02">KALT</option>
+<option title="Kyrgyzstan Time UTC+06">KGT</option>
+<option title="Kosrae Time UTC+11">KOST</option>
+<option title="Krasnoyarsk Time UTC+07">KRAT</option>
+<option title="Korea Standard Time UTC+09">KST</option>
+<option title="Lord Howe Standard Time UTC+10:30">LHST</option>
+<option title="Lord Howe Summer Time UTC+11">LHST</option>
+<option title="Line Islands Time UTC+14">LINT</option>
+<option title="Magadan Time UTC+12">MAGT</option>
+<option title="Marquesas Islands Time UTC-09:30">MART</option>
+<option title="Mawson Station Time UTC+05">MAWT</option>
+<option title="Mountain Daylight Time (North America) UTC-06">MDT</option>
+<option title="Middle European Time Same zone as CET UTC+01">MET</option>
+<option title="Middle European Summer Time Same zone as CEST UTC+02">MEST</option>
+<option title="Marshall Islands Time UTC+12">MHT</option>
+<option title="Macquarie Island Station Time UTC+11">MIST</option>
+<option title="Marquesas Islands Time UTC-09:30">MIT</option>
+<option title="Myanmar Standard Time UTC+06:30">MMT</option>
+<option title="Moscow Time UTC+03">MSK</option>
+<option title="Malaysia Standard Time UTC+08">MST</option>
+<option title="Mountain Standard Time (North America) UTC-07">MST</option>
+<option title="Mauritius Time UTC+04">MUT</option>
+<option title="Maldives Time UTC+05">MVT</option>
+<option title="Malaysia Time UTC+08">MYT</option>
+<option title="New Caledonia Time UTC+11">NCT</option>
+<option title="Newfoundland Daylight Time UTC-02:30">NDT</option>
+<option title="Norfolk Island Time UTC+11">NFT</option>
+<option title="Novosibirsk Time[9] UTC+07">NOVT</option>
+<option title="Nepal Time UTC+05:45">NPT</option>
+<option title="Newfoundland Standard Time UTC-03:30">NST</option>
+<option title="Newfoundland Time UTC-03:30">NT</option>
+<option title="Niue Time UTC-11">NUT</option>
+<option title="New Zealand Daylight Time UTC+13">NZDT</option>
+<option title="New Zealand Standard Time UTC+12">NZST</option>
+<option title="Omsk Time UTC+06">OMST</option>
+<option title="Oral Time UTC+05">ORAT</option>
+<option title="Pacific Daylight Time (North America) UTC-07">PDT</option>
+<option title="Peru Time UTC-05">PET</option>
+<option title="Kamchatka Time UTC+12">PETT</option>
+<option title="Papua New Guinea Time UTC+10">PGT</option>
+<option title="Phoenix Island Time UTC+13">PHOT</option>
+<option title="Philippine Time UTC+08">PHT</option>
+<option title="Pakistan Standard Time UTC+05">PKT</option>
+<option title="Saint Pierre and Miquelon Daylight Time UTC-02">PMDT</option>
+<option title="Saint Pierre and Miquelon Standard Time UTC-03">PMST</option>
+<option title="Pohnpei Standard Time UTC+11">PONT</option>
+<option title="Pacific Standard Time (North America) UTC-08">PST</option>
+<option title="Philippine Standard Time UTC+08">PST</option>
+<option title="Paraguay Summer Time[10] UTC-03">PYST</option>
+<option title="Paraguay Time[11] UTC-04">PYT</option>
+<option title="Réunion Time UTC+04">RET</option>
+<option title="Rothera Research Station Time UTC-03">ROTT</option>
+<option title="Sakhalin Island Time UTC+11">SAKT</option>
+<option title="Samara Time UTC+04">SAMT</option>
+<option title="South African Standard Time UTC+02">SAST</option>
+<option title="Solomon Islands Time UTC+11">SBT</option>
+<option title="Seychelles Time UTC+04">SCT</option>
+<option title="Samoa Daylight Time UTC-10">SDT</option>
+<option title="Singapore Time UTC+08">SGT</option>
+<option title="Sri Lanka Standard Time UTC+05:30">SLST</option>
+<option title="Srednekolymsk Time UTC+11">SRET</option>
+<option title="Suriname Time UTC-03">SRT</option>
+<option title="Samoa Standard Time UTC-11">SST</option>
+<option title="Singapore Standard Time UTC+08">SST</option>
+<option title="Showa Station Time UTC+03">SYOT</option>
+<option title="Tahiti Time UTC-10">TAHT</option>
+<option title="Thailand Standard Time UTC+07">THA</option>
+<option title="French Southern and Antarctic Time UTC+05">TFT</option>
+<option title="Tajikistan Time UTC+05">TJT</option>
+<option title="Tokelau Time UTC+13">TKT</option>
+<option title="Timor Leste Time UTC+09">TLT</option>
+<option title="Turkey Time UTC+03">TRT</option>
+<option title="Tonga Time UTC+13">TOT</option>
+<option title="Tuvalu Time UTC+12">TVT</option>
+<option title="	Ulaanbaatar Summer Time UTC+09">ULAST</option>
+<option title="Turkmenistan Time UTC+05">TMT</option>
+<option title="Ulaanbaatar Standard Time UTC+08">ULAT</option>
+<option title="Coordinated Universal Time UTC±00">UTC</option>
+<option title="Uruguay Summer Time UTC-02">UYST</option>
+<option title="Uruguay Standard Time UTC-03">UYT</option>
+<option title="Uzbekistan Time UTC+05">UZT</option>
+<option title="Venezuelan Standard Time UTC-04">VET</option>
+<option title="Vladivostok Time UTC+10">VLAT</option>
+<option title="Volgograd Time UTC+04">VOLT</option>
+<option title="Vostok Station Time UTC+06">VOST</option>
+<option title="Vanuatu Time UTC+11">VUT</option>
+<option title="Wake Island Time UTC+12">WAKT</option>
+<option title="West Africa Summer Time UTC+02">WAST</option>
+<option title="West Africa Time UTC+01">WAT</option>
+<option title="Western European Summer Time UTC+01">WEST</option>
+<option title="Western European Time UTC±00">WET</option>
+<option title="Western Indonesian Time UTC+07">WIT</option>
+<option title="Western Standard Time UTC+08">WST</option>
+<option title="Yakutsk Time UTC+09">YAKT</option>
+<option title="Yekaterinburg Time UTC+05">YEKT</option>
+           </select>
+
+        <BR>
+        <select id=yearSelect >
+          <option>2015</option>
+          <option>2016</option>
+          <option>2017</option>
+          <option>2018</option>
+          <option selected>2019</option>
+          <option>2020</option>
+          <option>2021</option>
+          <option>2022</option>
+          <option>2023</option>
+          </select>/<select title="Month" id=monthSelect><option value="01">1</option><option value="02">2</option><option value="03">3</option><option value="04">4</option><option value="05">5</option><option value="06">6</option><option value="07">7</option><option  value="08" >8</option><option value="09">9</option><option  value="10">10</option><option value="11">11</option><option value="12">12</option></select>/<select id=daySelect title="Day" >
+            <option >1</option>
+            <option >2</option>
+            <option >3</option>
+            <option >4</option>
+            <option >5</option>
+            <option >6</option>
+            <option>7</option>
+            <option >8</option>
+            <option >9</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+            <option>24</option>
+            <option>25</option>
+            <option>26</option>
+            <option>27</option>
+            <option>28</option>
+            <option>29</option>
+            <option>30</option>
+            <option>31</option>
+            </select>
+
+
+        &nbsp;<select id=hourSelect title="Hours" >
+           <option>1</option>
+           <option>2</option>
+           <option>3</option>
+           <option>4</option>
+           <option>5</option>
+           <option>6</option>
+           <option>7</option>
+           <option>8</option>
+           <option>9</option>
+           <option>10</option>
+           <option>11</option>
+           <option>12</option>
+          </select>:<select id=minuteSelect title="Minutes"  >
+            <option>00</option>
+            <option>01</option>
+            <option>02</option>
+            <option>03</option>
+            <option>04</option>
+            <option>05</option>
+            <option>06</option>
+            <option>07</option>
+            <option>08</option>
+            <option>09</option>
+            <option>10</option>
+            <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+            <option>16</option>
+            <option>17</option>
+            <option>18</option>
+            <option>19</option>
+            <option>20</option>
+            <option>21</option>
+            <option>22</option>
+            <option>23</option>
+            <option>24</option>
+            <option>25</option>
+            <option>26</option>
+            <option>27</option>
+            <option>28</option>
+            <option>29</option>
+            <option>30</option>
+            <option>31</option>
+            <option>32</option>
+            <option>33</option>
+            <option>34</option>
+            <option>35</option>
+            <option>36</option>
+            <option>37</option>
+            <option>38</option>
+            <option>39</option>
+            <option>40</option>
+            <option>41</option>
+            <option>42</option>
+            <option>43</option>
+            <option>44</option>
+            <option>45</option>
+            <option>46</option>
+            <option>47</option>
+            <option>48</option>
+            <option>49</option>
+            <option>50</option>
+            <option>51</option>
+            <option>52</option>
+            <option>53</option>
+            <option>54</option>
+            <option>55</option>
+            <option>56</option>
+            <option>57</option>
+            <option>58</option>
+            <option>59</option>
+          </select>
+
+           <select id=ampmSelect><option>AM</option><option>PM</option></select>
+
+
+
+
+
+    </td></tr>
+<tr> <td><input type="text" id=addPlantNameValue style="width:270px" placeholder="Plant Name...Leave blank if not known" autocomplete="off"  value=""  /></td></tr>
+<tr> <td><textarea  id=yourMapCommentValue style="background:#fbe650;width:270px;height:120px" placeholder="Commentary..." autocomplete="off"  value=""  ></textarea></td></tr>
+<tr> <td><input type="text" autocomplete="off"  id=yourMapEmailValue style="width:270px" placeholder="Your Email" autocomplete="off"  value=""  /></td></tr>
+
+<tr> <td align=center>
+<button  id=cancelButton  onClick=parent.cancelDrawMap()  >cancel</button>
+<button  id=clearButton title="Clear photo and elements" onClick=parent.clearDrawMap()  >clear</button>
+
+<button  onClick=parent.saveMyMap() id=sendButton >save</button></td></tr>
+
+<tr><td style=height:30px; ><span class="copySource"  id=sendMapMessageSpan style=color:blue></span></td></tr>
+
+</table>
+</div>
+
+
+<script>
+function sendSize()
+{
+
+
+   var width=containerDiv.scrollWidth+30
+   var height=containerDiv.scrollHeight+30
+
+   parent.sizeFrame('addElemMap',width,height)
+   if(parent.getCookie("email"))
+   {
+       yourMapEmailValue.value=parent.getCookie("email").replace(/%20/g," ")
+   }
+   if(parent.EditMapId)
+         {
+            containerDiv.style.background="orange"
+             editAddMapSpan.innerHTML="Save Map Edit"
+             myMapTitleValue.value =parent.EditMapTitle
+         }
+
+      // parent.startMapDraw()
+
+}
+</script>
+</body>
+
+</html>
