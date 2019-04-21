@@ -25,7 +25,7 @@ function saveMyMap()
                     var plantName = cw.addPlantNameValue.value
                     if(plantName=="")
                         plantName = "Not Known...Please Help (Contact my Email)"
-                        plantNameValue.value = plantName
+                        plantNameDiv.innerHTML = plantName
 
                         var comment = cw.yourMapCommentValue.value
                         myMapCommentValue.innerHTML = comment
@@ -141,7 +141,7 @@ function loadMyMap(id)
                                 discoveredSpan.innerHTML="<b>Discovered:</b> " +discovered
                                 discoveredSpan.title=tzTitle
                                 var plantName = elemG.getAttribute("plantName")
-                                plantNameValue.value = plantName
+                                plantNameDiv.innerHTML = plantName
                                 var comment = elemG.getAttribute("comment")
                                 myMapCommentValue.innerHTML = xml2txt(comment)
                                 titleContainerDiv.style.visibility = "visible"
@@ -292,7 +292,7 @@ function loadPreviewMap(id,by)
                                 discoveredSpan.title=tzTitle
 
                                 var plantName = elemG.getAttribute("plantName")
-                                plantNameValue.value = plantName
+                                plantNameDiv.innerHTML = plantName
                                 var comment = elemG.getAttribute("comment")
                                 myMapCommentValue.innerHTML = xml2txt(comment)
                                 titleContainerDiv.style.visibility = "visible"
@@ -382,7 +382,7 @@ function loadPreviewMap(id,by)
                                 discoveredSpan.title=tzTitle
 
                                 var plantName = elemG.getAttribute("plantName")
-                                plantNameValue.value = plantName
+                                plantNameDiv.innerHTML = plantName
                                 var comment = elemG.getAttribute("comment")
                                 myMapCommentValue.innerHTML = xml2txt(comment)
                                 titleContainerDiv.style.visibility = "visible"
@@ -734,7 +734,7 @@ function finishEditMap()
 
                 myMapTitleDiv.innerHTML = title+createdBy+atDate
                 var plantName = saveMap.getAttribute("plantName")
-                plantNameValue.value = plantName
+                plantNameDiv.innerHTML = plantName
                 var comment = saveMap.getAttribute("comment")
                 myMapCommentValue.innerHTML = xml2txt(comment)
 
