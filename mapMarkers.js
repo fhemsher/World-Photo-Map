@@ -147,7 +147,7 @@ function returnClearedMarker(id)
                 if(checkPlantName = document.getElementById("plantNameValue"+id))
                 var checkPlantName = document.getElementById("plantNameValue"+id).value
                 else
-                    checkPlantName = plantNameValue.value
+                    checkPlantName = plantNameDiv.innerHTML
 
                     // var plantName=map.getAttribute("plantName")
                     if(checkPlantName==""|| checkPlantName=="Not Known...Please Help (Contact my Email)")
