@@ -138,8 +138,9 @@ function loadMyMap(id)
 
                                 var discovered=elemG.getAttribute("discovered")
                                 var tzTitle=elemG.getAttribute("tzTitle")
-                                discoveredSpan.innerHTML="<b>Discovered:</b> " +discovered
-                                discoveredSpan.title=tzTitle
+
+                                discoveredSpan.innerHTML="<b>Discovered:</b> " +getDiscoveryToLocale(discovered,tzTitle)
+                                discoveredSpan.title="Creator set @ time zone: "+tzTitle+" (shown @ your Locale time)"
                                 var plantName = elemG.getAttribute("plantName")
                                 plantNameDiv.innerHTML = plantName
                                 var comment = elemG.getAttribute("comment")
@@ -287,9 +288,11 @@ function loadPreviewMap(id,by)
 
                                 myMapTitleDiv.innerHTML = elemG.getAttribute("title")+createdBy+atDate
                                 var discovered=elemG.getAttribute("discovered")
+
                                 var tzTitle=elemG.getAttribute("tzTitle")
-                                discoveredSpan.innerHTML="<b>Discovered:</b> " +discovered
-                                discoveredSpan.title=tzTitle
+
+                                discoveredSpan.innerHTML="<b>Discovered:</b> " +getDiscoverToLocale(discovered,tzTitle)
+                                discoveredSpan.title="Creator set @ time zone: "+tzTitle+" (shown @ your Locale time)"
 
                                 var plantName = elemG.getAttribute("plantName")
                                 plantNameDiv.innerHTML = plantName
@@ -378,8 +381,9 @@ function loadPreviewMap(id,by)
                                 myMapTitleDiv.innerHTML = elemG.getAttribute("title")+createdBy+atDate
                                 var discovered=elemG.getAttribute("discovered")
                                 var tzTitle=elemG.getAttribute("tzTitle")
-                                discoveredSpan.innerHTML="<b>Discovered:</b> " +discovered
-                                discoveredSpan.title=tzTitle
+
+                                discoveredSpan.innerHTML="<b>Discovered:</b> " +getDiscoverToLocale(discovered,tzTitle)
+                                discoveredSpan.title="Creator set @ time zone: "+tzTitle+" (shown @ your Locale time)"
 
                                 var plantName = elemG.getAttribute("plantName")
                                 plantNameDiv.innerHTML = plantName
@@ -728,9 +732,11 @@ function finishEditMap()
                 var locale = new Date(utcMs).toLocaleString()
                 var atDate = "<span style=font-size:80%;font-weight:normal > <i>("+locale+")</i></span>"
                 var discovered=saveMap.getAttribute("discovered")
+
                 var tzTitle=saveMap.getAttribute("tzTitle")
-                discoveredSpan.innerHTML="<b>Discovered:</b> " +discovered
-                discoveredSpan.title=tzTitle
+
+                discoveredSpan.innerHTML="<b>Discovered:</b> " +getDiscoverToLocale(discovered,tzTitle)
+                discoveredSpan.title="Creator set @ time zone: "+tzTitle+" (shown @ your Locale time)"
 
                 myMapTitleDiv.innerHTML = title+createdBy+atDate
                 var plantName = saveMap.getAttribute("plantName")
