@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head> <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <title>Place A Photo Of An Exotic Plant on the World Map. Help identify exotic plants.</title>
+  <script type="text/javascript" src="highlight.pack.js"></script>
+  <link href='highlight.css' rel='stylesheet' />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+
+<script charset="UTF-8" type="text/javascript" src="js00_utility/helperFuncts.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/iframeSelection.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/color.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/pathSeg.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/select.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/helperFuncts.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/cookie.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/print.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/bowser.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/showHideHelp.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js00_utility/gps.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js01_start/jquery2.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js01_start/initD3Svg.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js01_start/svg.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js02_location/cursorLoc.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js02_location/transformAdd.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js03_drag/dragObjZoom.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js04_svgSource/handleSource.js"></script>
+<script charset="UTF-8" type="text/javascript" src="js04_svgSource/showSource.js"></script>
+ <script  charset="UTF-8" type="text/javascript" src="d3.v4.min.js"></script>
+ <script  charset="UTF-8" type="text/javascript" src="AddElem/Map/zoomUpdate.js"></script>
+ <script  charset="UTF-8" type="text/javascript" src="AddElem/Map/bounds.js"></script>
+ <script  charset="UTF-8" type="text/javascript" src="mapMarkers.js"></script>
+ <script  charset="UTF-8" type="text/javascript" src="AddElem/Map/photoTable.js"></script>
+ <script  charset="UTF-8" type="text/javascript" src="js05_publish.js"></script>
+
+
+ <style type="text/css">
+  .noselect {
+      /*---prevent text element focus under create/edit elements---*/
+-webkit-touch-callout: none; /* iOS Safari */
+-webkit-user-select: none; /* Safari */
+-khtml-user-select: none; /* Konqueror HTML */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* Internet Explorer/Edge */
+user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+unselectable="on"
+onselectstart="return false;"
+onmousedown="return false;"
+ }
+ </style>
+
+</head>
+
+<body style='font-family:arial' >
+    <div id=mapContainerDiv style='top:0px;left:0px;width:100%;height:100%'>
+	<div class="myMapClass" style='border-radius:20px;position:fixed;top:0px;left:0px;width:100%;height:100%' id='MyMap'></div>
+   </div>
+
+<DIV id=containerDiv  style=position:absolute;top:60px;left:0px >
+<TABLE>
+ <TR>
+ <TD valign=top>
+ <DIV class=noselect  ID="iframeDiv" style='position:relative;top:0px;left:0px;width:400px'>
+<div id=addElemCircleFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemCircleFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Circle/drawCircle.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js03_drag/dragObjCircle.js"></script>
+    <div id=addElemEllipseFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemEllipseFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Ellipse/drawEllipse.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js03_drag/dragObjEllipse.js"></script>
+<div id=addElemRectFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemRectFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Rect/drawRect.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js03_drag/dragObjRect.js"></script>
+<div id=addElemImageFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemImageFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Image/drawImage.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js03_drag/dragObjImage.js"></script>
+
+
+<div id=addElemTextFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemTextFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Text/drawText.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js03_drag/dragObjText.js"></script>
+<div id=addElemPathFrameDiv  style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemPathFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Path/drawPath.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Path/drawPathButton.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Path/pathZoneMarker.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="js03_drag/dragPathPoint.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="js03_drag/dragAddPath.js"></script>
+
+<div id=addElemPathEditFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemPathEditFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Path/drawPathEdit.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Path/drawPathEditButton.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Path/pathEditZoneMarker.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="js03_drag/dragPathPointEdit.js"></script>
+
+<div id=addElemPolygonFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemPolygonFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Polygon/drawPolygon.js"></script>
+	<script charset="UTF-8" type="text/javascript" src="js03_drag/dragObjPolygon.js"></script>
+<div id=addElemMapFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=addElemMapFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+	<script charset="UTF-8" type="text/javascript" src="AddElem/Map/drawMap.js"></script>
+<div id=editElemMapFrameDiv style='padding:10px;border-radius:10px;position:fixed;visibility:hidden;width:1px;height:1px;overflow:hidden'><iframe id=editElemMapFrame style='border-width:0px;height:1px;overflow:hidden;'   scrolling='no' frameborder='0'   ></iframe></div>
+    <script  charset="UTF-8" type="text/javascript" src="AddElem/Map/aspMapRequest.js"></script>
+    <script  charset="UTF-8" type="text/javascript" src="AddElem/Map/updateMap.js"></script>
+
+
+
+ </DIV>
+
+ </TD>
+
+</TR>
+</TABLE>
+
+
+</DIV>
+
+
+<div class=noselect id=introDiv style='font-size:95%;position:absolute;top:30px;left:10px;width:360px;background:#ABCDEF;border:1px solid blue;border-radius:15px;padding:10px;color:MIDNIGHTBLUE'>
+<center>
+<table style=width:100%><tr><td style=width:90% align=center><b>Share your Exotic Plant Photo &amp;<br>Get help to identify it.</b></td><td align=right><button title="Close" onclick=closeIntro()>X</button></td>
+</tr>
+</table>
+</center>
+  <i>(Take a photo of your plant, note date&amp;time, record its GPS values if available, then make a rough hand sketch of any details in the area of its location.)</i><br><br>
+ Using this application, insert the photo of your exotic plant, stored on your computer,  at it's location on the world map.
+ If you do not know its name, others will help identify it.
+
+Also draw  shapes  on the world map to customize your map showing details of its location.
+Shapes are: circles, ellipses, rectangles, text, paths,  and polygons.
+<center><img src="Images/exoticPlant.jpg" alt="" width="300" height="232" /></center>
+After you have added your photo and location details, select 'Add Your Plant Map' button.
+<br>Viewers of your map can contact you via <b>your email address</b> for questions or answers
+about your exotic plant.
+
+<table>
+    <tr>
+
+<td>
+ <img src="Images/marker.png" alt="" width="94" height="52" />
+</td>
+<td style=font-size:80%>
+Markers showing map locations.  Click on a marker to show its photo, map number, and title.
+Then click photo to preview this plant's map.
+A red marker indicates help is needed to identify the plant.
+</td>
+</tr></table>
+</div>
+
+
+
+
+
+<div class=noselect  id=helpDiv style='visibility:hidden;position:absolute;top:60px;left:10px;width:360px;height:1px;background:linen;border:1px solid blue;border-radius:15px;padding:10px;overflow:hidden'>
+<table style=width:100%><td style=width:90%; align=center><h7><b>Drawing SVG Shape Elements On World Map</b></h7></td><td align=right><button onclick=closeHelp()>X</button></td></table>
+<br>
+SVG shapes are: Circles, ellipses, rectangles, text, paths,  polygons,  and images.<p></p>
+<i>These shapes can be added to your map to pinpoint plant locations.</i><p></p>
+<b>Paths</b> - Both linear and curved paths can be created by clicking their points on the drawing. Drag any point to modify its shape.
+
+<br>Paths segments also include geographic data:
+<center><img src="Images/pathData.png" alt="" /></center
+
+
+
+<br> <b>Shadows</b> - Each element can be selected to include a drop-shadow.
+ <P></P>
+<center><b>Editing SVG Elements</b></center>
+<img align=left src="Images/rightClick.png" alt="" width="45" height="65" /> NOTE: Any element can be edited with  cursor over element &amp; mouse <b style=color:red>Right-Click</b>.
+
+
+</div>
+
+
+
+
+<center>
+
+
+<div id=selectDrawElemDiv style='visibility:hidden;width:100%;position:fixed;top:0px;left:0px;'><b><span style=color:blue><i>Exotic Plant Map</i></span></b><button onClick=openHelp() style=width:25px;height:25px;padding:0px;border:0px;background:transparent ><img src="Images/help.png" alt="Diagrams"  width=25 height=25 /></button>
+&nbsp; &nbsp; &nbsp; &nbsp; <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=getMapLibraryButton  style=background-color:#C3E6D3 onClick=getMapLibrary()>Exotic Plant Maps</button><button onClick=openMapHelp() style=width:20px;height:20px;padding:0px;border:0px;background:transparent ><img src="Images/help.png" alt="Maps"  width=20 height=20 /></button>
+  &nbsp;&nbsp;
+ <button title="Save current map to Library" onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddMapButton   style=background-color:#C3E6D3 onClick=openAddMapDraw()  ><i>Add Your Plant Map</i></button><button onClick=openSaveMapHelp() style=width:20px;height:20px;padding:0px;border:0px;background:transparent ><img src="Images/help.png" alt="Maps"  width=20 height=20 /></button>
+   &nbsp;&nbsp;
+ <button title="Show all plant photos and their names" onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openPhotoTableButton   style=background-color:#C3E6D3 onClick=openPhotoTable()  ><i>All Plant Photos</i></button>
+
+
+<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddImageButton title="Add image from your computer" style=background-color:linen onClick=openAddImageDraw()>Photos</button>
+            <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddCircleButton  style=background-color:linen onClick=openAddCircleDraw()>Circles</button>
+            <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddEllipseButton  style=background-color:linen onClick=openAddEllipseDraw()>Ellipses</button>
+            <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddRectButton  style=background-color:linen onClick=openAddRectDraw()>Rectangles</button>
+            <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddTextButton  style=background-color:linen onClick=openAddTextDraw()>Text</button>
+            <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddPathButton  style=background-color:linen onClick=openAddPathDraw()>Paths</button>
+            <button onmouseover=this.style.borderColor="lime" onmouseout=this.style.borderColor=''  id=openAddPolygonButton  style=background-color:linen onClick=openAddPolygonDraw()>Polygons</button>
+
+
+  </div>
+</center>
+
+
+<div class=noselect  id=mapHelpLibraryDiv style='visibility:hidden;position:absolute;top:60px;left:10px;width:360px;height:1px;background:#C3E6D3;;border:1px solid blue;border-radius:15px;padding:10px;overflow:hidden'>
+<table style=width:100%><td style=width:90%; align=center><h7><b>Your Plant Maps</b></h7></td><td align=right><button onclick=closeMapHelp()>X</button></td></table>
+
+ A typical listing, includes map (#):
+<center><img src="images/myLibrary.png" alt="" width="361" height="144" /></center>
+
+ Click on the button <button>photo</button> to display the map's photo.
+ Click on the listing <button>show</button> to load this map.
+<br>
+The creator of a map can <button style=background:orange>edit</button> their map:
+<i><br>&bull;Elements can be edited/deleted/added to the map.
+<br>&bull;The *boundary of the map can be changed.
+<br>&bull;The title can be changed.
+<br>&bull;The plant name can be added/changed.
+<br>&bull;The commentary can be changed.</i><br>
+&nbsp;&nbsp;&nbsp;* Zoom map in/out.
+<p></p>
+
+
+
+You can also <button style=background:red>delete</button> your map  from the library.
+<br>Note: The map can be edited or deleted only by its creator.
+<p></p>
+Each map can be published into a web page or iframe. Select <button>publish</button> to create
+the HTML source:<br>
+<textarea style=overflow:hidden;width:330px;height:130px;>
+ <!DOCTYPE HTML>
+<html>
+<script>
+  window.open('http://exotic-plant-map.org/PUBLISH/index.htm\?id=map1535555468929','_self')
+</script>
+</html>
+</textarea>
+ <center><a title="Stand-alone custom map drawing" target=_blank href="PUBLISH/index.htm?id=map1554911295084">Published Custom Map - example</a></center>
+
+</div>
+
+<div class=noselect  id=saveMapHelpDiv style='visibility:hidden;position:absolute;top:60px;left:10px;width:360px;height:1px;background:#C3E6D3;;border:1px solid blue;border-radius:15px;padding:10px;overflow:hidden'>
+<table style=width:100%><td style=width:90%; align=center><h7><b>Save Your Map to Library</b></h7></td><td align=right><button onclick=closeSaveMapHelp()>X</button></td></table>
+   <center> <i>Create &amp; save your map</i></center>
+   This will take a 'snapshot' of the current World Map view that includes your photo,  and its location details you have added to the World Map.
+<br>
+
+
+   Provide a title, discovery date, plant name, plus commentary for the map and your email address
+  <br><img src="images/saveMap.png" alt="" /><br>
+
+<br>
+Selecting <button>clear</button> will remove your photo and elements. You may start over or quit creating your map.<br>
+Selecting <button>save</button> will store the current map view and its  added location details into the Map Library.
+
+
+</div>
+<div class=noselect  id=GPSHelpDiv style='visibility:hidden;position:absolute;top:60px;left:10px;width:360px;height:1px;background:#C3E6D3;;border:1px solid blue;border-radius:15px;padding:10px;overflow:hidden'>
+<table style=width:100%><td style=width:90%; align=center><h7><b>GPS Locator</b></h7></td><td align=right><button onclick=closeGPSHelp()>X</button></td></table>
+<p><i>You can use a GPS unit to precisely locate your plant.</i></p>
+
+Select the checkbox to display the GPS crosshairs. You can move the cursor to the desired location, then <b>right-click</b> mouse button to fix its GPS value and center the map initially at the GPS point.
+<p></p>
+Also, you may insert a GPS value and select its associated 'go' button to set the crosshairs and center the drawing at the GPS point.
+<p></p><b>Note:</b> If crosshairs are set when you select 'Add Your Plant Map' button, the GPS value will be included in your map's commentary.
+</div>
+
+<div id=photoTableDiv style='padding:10px;border:1px solid black;background:white;visibility:hidden;width:200px;height:1px;overflow:hidden;position:absolute;top:5px;left:10px'>
+<table style=width:100%><tr><td style=width:90% align=center><b>Plant Photos</b></td><td align=right></td></tr></table>
+<table id=photoTable style=width:100%  cellspacing=0 cellpadding=0 border=0></table>
+<button title="Close Photos" id=photoTableCloseButton onmouseover=this.style.background="red"  onmouseout=this.style.background=""  style='position:fixed;top:35px;left:205px' onclick=closePhotoTable() >X</button>
+</div>
+<DIV id="titleContainerDiv" style='border:1px solid black;border-radius:8px;background:white;visibility:hidden;width:80%;top:75%;position:fixed;left:150px;'>
+<div id=myMapTitleDiv style='font-size:110%;font-weight:bold;padding:3px;width:99%;text-align:center;background:#e0b0ff;height:15%'>My Map Title Goes Here</div>
+<center>
+ <span id=discoveredSpan style="cursor:default" ></span> &nbsp;
+<b>Plant Name:</b> <input id=plantNameValue onfocus=blur() style='width:40%' value="Not Known...please help (Contact my email)."/></center>
+<div   id=myMapCommentValue style='text-align:justify;font-size:80%;border:1px solid black;padding:3px;width:99%;background:#fbe650;'>My Map Commentary Goes Here</div>
+</DIV>
+
+
+<div id=mapTableDiv style='padding:10px;border:1px solid blue;background:#C3E6D3;visibility:hidden;width:370px;height:1px;overflow:hidden;position:absolute;top:5px;left:10px'>
+<table style=width:100%><tr><td style=width:90% align=center><b>Plant Map Library</b></td><td align=right></td></tr></table>
+
+ <center><div id=mapEmptyDiv>(Map Library Empty...)</div></center>
+ Map numbers <b>(1.)</b> through <b>(12.)</b> are examples created to show you various location details...Locations are fictitious.
+
+<table id=mapTable style=width:100%  cellspacing=0 cellpadding=0 border=0></table>
+
+<button title="Close Map Library" id=mapTableCloseButton onmouseover=this.style.background="red"  onmouseout=this.style.background=""  style='visibility:hidden;position:fixed;top:30px;left:375px' onclick=closeMapTable() >X</button>
+
+</div>
+<div id=printHideDiv>
+<div style='cursor:default;border:1px solid black; border-radius:3px; padding:3px;background:yellow;position:fixed;top:5px;left:2px'><span title="Map Zoom Level" id=zoomLevelSpan>2</span> <span style=background:lime title="Element Zoom Level" id=elemLevelSpan></span></div>
+<div id=emDiv style=width:70%;text-align:center;background:white;position:fixed;top:97%;left:400px;></div>
+<div id=publishMapDiv style='border:1px solid black;padding:10px;border-radius:10px;background:gainsboro;visibility:hidden;position:fixed;top:20%;left:20%;width:50%;'>
+ <table style=width:100%><tr><td align=center style='width:90%'><b>Publish Your Map</b></td><td><button onclick=publishMapDiv.style.visibility='hidden'>X</button></td></tr></table>
+   <center>
+       This map is now available for publication.<br>
+    Copy the following as your web page or iframe src:<br>
+
+   <textarea name="" id="publishValue" style='border:1px solid black;border-radius:8px;padding:5px;width:80%;height:140px;background:white'></textarea></center>
+
+</div>
+</div>
+<div id=photoDiv title='Click to hide' onClick=this.style.visibility='hidden' style='position:absolute;top;200px;left:500px;width:500px;visibility:hidden'></div>
+
+<div  id=commentDiv  style='box-shadow: 4px 4px 4px #888888;-webkit-box-shadow:4px 5px 6px #888888;font-size:80%;z-index:20;padding:2px;position:absolute;top:0px;left:0px;visibility:visible;background-color:linen;border: solid 1px black;border-radius:5px;'></div>
+<img  onClick=zoomOut() title="Zoom out to World view" style=position:absolute;top:10px;left:90%; id=zoomOutImage src="Images/zoom-out-grey.png" alt="" width="30" height="30" />
+
+<DIV id=gpsShowHideDiv style=visibility:hidden;position:fixed;top:92%;left:5px;>
+<div id=gpsDiv style='cursor:default;'><input id=gpsValue title="GPS" type="text" style='cursor:default;width:300px;font-size:80%;background:black;border;color:lime;border:4px inset gray;' /> <span style=padding:2px;background:black;color:lime><input  title="Set GPS crosshairs via mouse right-click" type="checkbox" id=gpsCheck onClick=gpsChecked() /></span><button onClick=openGPSHelp() style=width:20px;height:20px;padding:0px;border:0px;background:transparent ><img src="Images/help.png" alt="Maps"  width=20 height=20 /></button></div>
+<div id=gpsGotoDiv ><input placeholder='Insert GPS here...latitude,longitude' id=gpsGoToValue title="Center Map at this GPS" type="text" style='cursor:default;width:300px;background:black;border;color:lime;border:4px inset gray' /> <button title='Center map at this GPS' onClick=goToGPS()>go</button></div>
+</DIV>
+
+</body>
+<script>
+document.addEventListener("onload",init(),false)
+function init()
+{
+	initD3Svg()
+
+	startCursorLoc()
+  writeEM()
+	$(".copy").children().bind('contextmenu', function(e){
+		e.stopPropagation();
+	});
+	$(".copySource").bind('contextmenu', function(e){
+		e.stopPropagation();
+	});
+	$("#mapDiv").children().bind('contextmenu', function(e){
+		e.stopPropagation();
+	});
+
+   CookieEmail = getCookie("email")
+
+    d3.select("#textSVG").transition().duration(5000).attr("opacity",0)
+    setTimeout('mySVG.removeChild(textSVG)',5000)
+   testBrowserVersion()
+   loadMapDoc() // and markers
+
+
+}
+
+mapContainerDiv.addEventListener('contextmenu', event => event.preventDefault());
+
+
+function writeEM()
+{
+   var em="Contact Developer: "
+    em+="fhem"
+    em+="sher"
+    em+="@"
+    em+="gm"
+    em+="ail."
+    em+="com"
+   emDiv.innerHTML=em +" &nbsp;&nbsp;<span style=color:maroon>Last Update: 04/21/2019</span> "
+
+}
+function closeIntro()
+{
+ introDiv.style.height=introDiv.scrollHeight+"px"
+ d3.select("#introDiv").transition().duration(300).style("height","1px")
+setTimeout("introDiv.style.visibility='hidden'",400)
+
+}
+
+</script>
+
+
+</html>
