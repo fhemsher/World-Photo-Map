@@ -273,7 +273,7 @@ Also, you may insert a GPS value and select its associated 'go' button to set th
 <div id=myMapTitleDiv style='font-size:110%;font-weight:bold;padding:3px;width:99%;text-align:center;background:#e0b0ff;height:15%'>My Map Title Goes Here</div>
 <center>
  <span id=discoveredSpan style="cursor:default" ></span> &nbsp;
-<b>Plant Name:</b> <input id=plantNameValue onfocus=blur() style='width:40%' value="Not Known...please help (Contact my email)."/></center>
+<b>Plant Name:</b> <span id=plantNameDiv  >Not Known...please help (Contact my email)</span></center>
 <div   id=myMapCommentValue style='text-align:justify;font-size:80%;border:1px solid black;padding:3px;width:99%;background:#fbe650;'>My Map Commentary Goes Here</div>
 </DIV>
 
@@ -353,7 +353,7 @@ function writeEM()
     em+="gm"
     em+="ail."
     em+="com"
-   emDiv.innerHTML=em +" &nbsp;&nbsp;<span style=color:maroon>Last Update: 04/21/2019</span> "
+   emDiv.innerHTML=em +" &nbsp;&nbsp;<span style=color:maroon>Last Update: 04/21/2019</span> &nbsp;&nbsp;&nbsp;<a title='Stand-Alone Windows 10 Application' href='https://github.com/fhemsher/World-Photo-Map' target=_blank>Download Website Files</a>"
 
 }
 function closeIntro()
